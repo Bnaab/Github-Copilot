@@ -5,32 +5,37 @@
     font-family: 'Times New Roman', Times, serif;
     border: none;
 }
+
 :root {
-    --text-color: #fff;                 
-    --bg-color: #222;                   
-    --input-bg: #444;                   
-    --placeholder-color: #999;          
-    --btn-bg: #6666664e;                
-    --border-focus: rgb(181, 181, 236); 
+    --text-color: #fff;
+    --bg-color: #222;
+    --input-bg: #444;
+    --placeholder-color: #999;
+    --btn-bg: #6666664e;
+    --border-focus: rgb(181, 181, 236);
     --icon-color: #b2aeae;
 }
+
 body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     background-color: var(--bg-color);
     color: var(--text-color);
 }
 
 .container {
-    height: 100vh;
-    width: 70%;
+    height: auto;
+    min-height: 100vh;
+    width: min(70%, 900px);
+    max-width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 24px 16px 32px;
 }
 
 .container .main {
@@ -38,6 +43,7 @@ body {
     flex-direction: column;
     align-items: center;
     margin-bottom: 40px;
+    width: 100%;
 }
 
 .container .main img {
@@ -54,9 +60,9 @@ body {
 
 .co_message {
     display: flex;
-    width: 100%;
-    padding: 0 10px ;
-    /* max-width: clamp(250px, 40%, 500px); */
+    width: min(100%, 760px);
+    padding: 0 10px;
+    flex-wrap: wrap;
 }
 
 .input-wrapper {
@@ -64,11 +70,12 @@ body {
     align-items: center;
     background-color: var(--input-bg);
     border-radius: 8px;
-    width: 100%;
+    width: min(100%, 760px);
     padding: 0 8px;
     border: 1px solid transparent;
     transition: border-color 0.2s ease;
     margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
 .input-wrapper:focus-within {
@@ -76,7 +83,7 @@ body {
 }
 
 .input-wrapper input {
-    flex: 1;
+    flex: 1 1 auto;
     background: transparent;
     border: none;
     padding: 10px;
@@ -84,7 +91,8 @@ body {
     color: var(--placeholder-color);
     font-size: 16px;
     outline: none;
-    width: 85%;  
+    width: 85%;
+    min-width: 0;
 }
 
 .input-wrapper .material-symbols-outlined {
@@ -95,6 +103,9 @@ body {
     border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .input-wrapper .material-symbols-outlined:hover {
@@ -102,29 +113,30 @@ body {
 }
 
 .container .co_message input {
-    flex: 1;
+    flex: 1 1 auto;
     background: transparent;
     border: none;
     outline: none;
     color: var(--text-color);
     font-size: 16px;
-    min-width: 50px;
+    min-width: 0;
 }
 
 .container .co_message input::placeholder {
     color: var(--placeholder-color);
     font-weight: 300;
 }
-.input-wrapper .material-symbols-outlined{
-    font-size: 18px;        
+
+.input-wrapper .material-symbols-outlined {
+    font-size: 18px;
     color: var(--text-color);
-    padding: 8px;           
-    margin: 0 4px;          
+    padding: 8px;
+    margin: 0 4px;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;     
+    border-radius: 50%;
     transition: background-color 0.2s ease;
 }
 
@@ -134,9 +146,10 @@ body {
 
 .extra {
     display: flex;
-    /* align-items: center;
-    justify-content: center; */
+    flex-wrap: wrap;
+    width: min(100%, 760px);
     padding: 5px;
+    gap: 8px;
 }
 
 .extra button {
@@ -150,6 +163,8 @@ body {
     color: var(--icon-color);
     background-color: #6666664e;
     cursor: pointer;
+    flex: 1 1 auto;
+    min-width: 120px;
 }
 
 .extra .btn:hover {
@@ -161,7 +176,6 @@ body {
     color: #999;
 }
 
-/* Icon styles */
 button .material-symbols-outlined {
     color: var(--icon-color);
     flex-shrink: 0;
@@ -170,4 +184,70 @@ button .material-symbols-outlined {
 
 .material-symbols-outlined:hover {
     color: rgb(181, 181, 236);
+}
+
+@media (max-width: 600px) {
+    body {
+        align-items: flex-start;
+        padding: 24px 0;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        min-height: auto;
+        padding: 20px 12px 28px;
+    }
+
+    .container .main {
+        margin-bottom: 24px;
+    }
+
+    .container .main img {
+        height: 80px;
+        width: 80px;
+        margin: 8px;
+    }
+
+    .co_message {
+        width: 100%;
+        padding: 0;
+    }
+
+    .input-wrapper {
+        width: 100%;
+        padding: 0 8px;
+    }
+
+    .input-wrapper input {
+        height: 56px;
+        font-size: 15px;
+        width: calc(100% - 42px);
+    }
+
+    .input-wrapper .material-symbols-outlined {
+        font-size: 16px;
+        padding: 8px;
+        margin: 0 2px;
+    }
+
+    .extra {
+        width: 100%;
+        padding: 0;
+        margin-top: 4px;
+        gap: 6px;
+    }
+
+    .extra button {
+        flex: 1 1 calc(50% - 8px);
+        min-width: 0;
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .container .last {
+        text-align: center;
+        width: 100%;
+        margin-top: 8px;
+    }
 }
