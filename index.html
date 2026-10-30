@@ -10,29 +10,33 @@
 </head>
 <body>
     <div class="container">
-        <div class="main">
-            <!-- <img src="img/download-removebg-preview (1).png" alt="copilot"> -->
-             <!-- Embed Copilot icon SVG inline or via <img> -->
-<img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-copilot-icon.svg" alt="GitHub Copilot icon" width="40" height="40">
+        <main class="main" aria-label="GitHub Copilot">
+            <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-copilot-icon.svg" alt="GitHub Copilot icon" width="40" height="40">
             <h1>Welcome to Copilot</h1>
             <p>Let's get started</p>
-        </div>
+        </main>
 
-        <div class="co_message">
-            <div class="input-wrapper">
-                <input type="text" id="co_text" placeholder="Ask Copilot...">
-                 <span class="material-symbols-outlined">alternate_email</span>
-                <span class="material-symbols-outlined">mic</span>
-                <span class="material-symbols-outlined">send</span>
-                <span class="material-symbols-outlined">expand_more</span>
-            </div>
-        </div>
+        <section class="co_message" aria-label="Ask Copilot">
+            <form class="input-wrapper" action="#" method="get">
+                <label class="sr-only" for="co_text">Ask Copilot</label>
+                <input type="text" id="co_text" name="prompt" placeholder="Ask Copilot..." autocomplete="off">
+                <button type="button" class="material-symbols-outlined" aria-label="Use email">alternate_email</button>
+                <button type="button" class="material-symbols-outlined" aria-label="Use microphone">mic</button>
+                <button type="submit" class="material-symbols-outlined" aria-label="Send message">send</button>
+                <button type="button" class="material-symbols-outlined" aria-label="More options">expand_more</button>
+            </form>
+        </section>
 
-
-        <div class="extra">
-            <button class="btn"><span class="material-symbols-outlined">build</span>Build workspace</button>
-            <button class="btn"><span class="material-symbols-outlined">settings</span>Show project config</button>
-        </div>
+        <section class="extra" aria-label="Workspace actions">
+            <button class="btn" type="button">
+                <span class="material-symbols-outlined">build</span>
+                Build workspace
+            </button>
+            <button class="btn" type="button">
+                <span class="material-symbols-outlined">settings</span>
+                Show project config
+            </button>
+        </section>
 
         <p class="last">Review AI output carefully before use</p>
     </div>
